@@ -17,5 +17,5 @@
 
 <tr class="categories">
 
-    <td colspan="4"><span class="note">{{ $product->categories->implode('name', ', ') ?: 'Sin Categorias'}}</span></td>
+    <td colspan="6"><span class="note">{{ $product->categories->implode('name', ', ') ?: 'Sin Categorias'}}</span></td>
 </tr>

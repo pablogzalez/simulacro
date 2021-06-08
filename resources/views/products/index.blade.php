@@ -27,12 +27,12 @@
             <tr>
                 <th scope="col">#<span></span></th>
 
-                <th scope="col"><a href="">Nombre</a></th>
-                <th scope="col"><a href="">Codigo</a></th>
-                <th scope="col"><a href="">Precio</a></th>
-                <th scope="col"><a href="">Fecha Cadudidad</a></th>
-                <th scope="col"><a href="">Envío</a></th>
-                <th scope="col"><a href="">Stock</a></th>
+                <th scope="col"><a href="{{ $sortable->url('name') }}" class="{{ $sortable->classes('name') }}">Nombre</a></th>
+                <th scope="col"><a href="{{ $sortable->url('code') }}" class="{{ $sortable->classes('code') }}">Codigo</a></th>
+                <th scope="col"><a href="{{ $sortable->url('price') }}" class="{{ $sortable->classes('price') }}">Precio</a></th>
+                <th scope="col"><a href="{{ $sortable->url('expiration_date') }}" class="{{ $sortable->classes('expiration_date') }}">Fecha Cadudidad</a></th>
+                <th scope="col"><a href="{{ $sortable->url('shipment') }}" class="{{ $sortable->classes('shipment') }}">Envío</a></th>
+                <th scope="col"><a href="{{ $sortable->url('stock') }}" class="{{ $sortable->classes('stock') }}">Stock</a></th>
 
             </tr>
             </thead>

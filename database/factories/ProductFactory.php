@@ -26,7 +26,7 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->name,
             'code' => $this->faker->unique()->uuid,
-            'price' => $this->faker->numberBetween(1,100000),
+            'price' => $this->faker->randomFloat(3,1,1000),
             'expiration_date' => $this->faker->date(),
             'shipment' => $this->faker->boolean,
             'stock' => $this->faker->boolean,

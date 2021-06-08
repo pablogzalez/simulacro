@@ -16,7 +16,7 @@
     {{--        </p>--}}
     {{--    </div>--}}
 
-    {{--    @includeWhen($view == 'index', 'cabbies._filters')--}}
+        @includeWhen($view == 'index', 'products._filters')
 
     {{--@if ($products->isNotEmpty())--}}
     <h1>Listado de Productos</h1>

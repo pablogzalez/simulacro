@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Shop;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -20,6 +21,11 @@ class DatabaseSeeder extends Seeder
         $this->call(SkillSeeder::class);
         $this->call(TeamSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(ShopSeeder::class);
+
+        $this->call(CategorySeeder::class);
+        $this->call(ProductSeeder::class);
+
     }
 
     public function truncateTables(array $tables)

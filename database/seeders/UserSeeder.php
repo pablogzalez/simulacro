@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
 
         $this->createAdmin();
 
-        foreach (range(1, 999) as $i) {
+        foreach (range(1, 20) as $i) {
             $this->createRandomUser();
         }
     }

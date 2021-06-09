@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Http\Requests\CreateProductRequest;
 use App\Product;
 use App\Sortable;
 use Illuminate\Http\Request;
@@ -24,5 +26,25 @@ class ProductController extends Controller
             'sortable' => $sortable,
         ]);
 
+    }
+
+    public function create() //funcion para crear producto. Al igual que se crea en el controlador UserController.
+    {
+        return $this->form('products.create', new Product());
+    }
+
+    public function store(CreateProductRequest $request)
+    {
+        $request->createProduct();
+
+        return redirect()->route('products.index');
+    }
+
+    public function form($view, Product $product) //pasamos informacion a la vista.
+    {
+        return view($view, [
+            'product' => $product,
+            'categories' => Category::get(),
+        ]);
     }
 }

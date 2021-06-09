@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     /**
      * Create a new Eloquent query builder for the model.
      *

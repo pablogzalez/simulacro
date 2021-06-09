@@ -36,5 +36,7 @@ Route::delete('/profesiones/{profession}', 'ProfessionController@destroy')->name
 Route::get('/habilidades/', 'SkillController@index')->name('skills.index');
 
 Route::get('/productos/', 'ProductController@index')->name('products.index');
+Route::get('productos/nuevo', 'ProductController@create')->name('products.create');
+Route::post('/productos', 'ProductController@store')->name('products.store');
 
 Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController');

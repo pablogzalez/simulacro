@@ -13,7 +13,24 @@ class ProductFilter extends QueryFilter
         return [
             'search' => 'filled',
             'order' => [new SortableColumn(['name', 'code', 'price', 'expiration_date', 'shipment', 'stock'])],
+            'minPrice' => 'numeric',
+            'maxPrice' => 'numeric',
+            'minDate' => 'date_format:Y-m-d',
+            'maxDate' => 'date_format:Y-m-d',
+            'shipment' => 'in:active,inactive',
+            'stock' => 'in:active,inactive',
         ];
+    }
+
+    public function shipment($query, $active)
+    {
+        return $query->when($active, function ($query, $active) {
+            if ($active == 'active') {
+                $query->where('shipment', 1);
+            } elseif ($active == 'inactive') {
+                $query->where('shipment', 0);
+            }
+        });
     }
 
     public function search($query, $search)
@@ -27,6 +44,26 @@ class ProductFilter extends QueryFilter
     public function getColumnName($alias)
     {
         return $this->aliasses[$alias] ?? $alias;
+    }
+
+    public function minPrice($query, $desde)
+    {
+        $query->where('price', '>=', $desde);
+    }
+
+    public function maxPrice($query, $a)
+    {
+        $query->where('price', '<=', $a);
+    }
+
+    public function minDate($query, $desde)
+    {
+        $query->where('expiration_date', '>=', $desde);
+    }
+
+    public function maxDate($query, $a)
+    {
+        $query->where('expiration_date', '<=', $a);
     }
 
 
